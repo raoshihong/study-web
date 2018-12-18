@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>spring boot——websocket</title>
+    <script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+    <script type="text/javascript">
+
+        var stompClient = null;
+
+        //连接
+        var socket ;//= new SockJS('http://localhost:8089/thor-bi/api/my-websocket');
+        socket = new WebSocket("ws://localhost:8089/thor-bi/api/my-websocket");
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function(frame) {
+            // 注册发送消息,订阅/topic/send 事件
+            stompClient.subscribe('/topic/send', function(msg) {
+                console.log(msg.body);
+            });
+            // 注册推送时间回调,订阅/topic/callback事件
+            stompClient.subscribe('/topic/callback', function(r) {
+                console.log(r.body);
+            });
+
+            //客户端发送消息给服务端
+            stompClient.send("/app/send", {}, JSON.stringify({
+                'message' : "2012-10-16"
+            }));
+        },function (error) {
+            
+        });
+
+    </script>
+</head>
+<body>
+
+<div id="msg"></div>
+
+
+</body>
+</html>

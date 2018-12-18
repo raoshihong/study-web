@@ -1,4 +1,4 @@
-package com.rao.study.web.config;
+package com.rao.study.web.tomcatWebSocket;
 
 import java.io.IOException;
 import java.util.ArrayList;

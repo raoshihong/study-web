@@ -1,4 +1,4 @@
-package com.rao.study.web.config;
+package com.rao.study.web.tomcatWebSocket;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

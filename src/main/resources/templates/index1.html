@@ -13,7 +13,7 @@
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
         var token = "00cdd43faa86d5acd85c2a8522c512ab";
-        websocket = new WebSocket("ws://localhost:8089/thor-bi/api/socketServer",[token]);
+        websocket = new WebSocket("ws://localhost:8001/study-web/myHandler");
 
         //连接成功建立的回调方法
         websocket.onopen = function () {

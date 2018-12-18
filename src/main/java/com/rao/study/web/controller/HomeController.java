@@ -13,4 +13,24 @@ public class HomeController {
         return "/index";
     }
 
+    @RequestMapping(value = "/index1")
+    public String index1(){
+        return "/index1";
+    }
+
+    @RequestMapping(value = "/index2")
+    public String index2(){
+        return "/index2";
+    }
+
+    @RequestMapping(value = "/index3")
+    public String index3(){
+        return "/index3";
+    }
+
+    @RequestMapping(value = "/index4")
+    public String index4(){
+        return "/index4";
+    }
+
 }
